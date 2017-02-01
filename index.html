@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<title>ToolTup JQuery Plugin by Wortit.net</title>
+<link rel="stylesheet" href="/tooltup.min.css" />
+<link rel="stylesheet" href="//necolas.github.io/normalize.css/latest/normalize.css" />
+<style type="text/css">
+.bloque_con_fondo{
+width:200px;
+height:200px;
+background:#07f;
+}
+
+.btn_green{box-shadow: none;-webkit-border-radius: 2px;border-radius: 2px;cursor: default;font-size: 12px;font-weight: bold;text-align: center;white-space: nowrap;margin-right: 16px;height: 28px;line-height: 28px;min-width: 54px;outline: 0;padding: 0 8px;outline: none;-webkit-box-shadow: 0 1px 0 rgba(0,0,0,.05);box-shadow: 0 1px 0 rgba(0,0,0,.05);background-color: #53a93f;background-image: -webkit-linear-gradient(top,transparent,transparent);background-image: linear-gradient(top,transparent,transparent);border: 1px solid transparent;color: #fff;text-shadow: none;}
+.btn_green:hover{-webkit-box-shadow: inset 0 -1px 0 #4c8534;box-shadow: inset 0 -1px 0 #4c8534;background-color: #65b045;background-image: -webkit-linear-gradient(top,transparent,transparent);background-image: linear-gradient(top,transparent,transparent);border: 1px solid transparent;border-bottom: 1px solid #4c8534;text-shadow: none;}
+.btn_green:active{-webkit-box-shadow: inset 0 1px 0 #2f6124;box-shadow: inset 0 1px 0 #2f6124;background: #3e802f;border: 1px solid transparent;border-top: 1px solid #2f6124;}
+</style>
+</head>
+<body>
+<div class="tooltup_by_Wortit">Este es un texto demostrativo, <a class="run_plugin">Clic aquí</a> para iniciar el recorrido.</div>
+<br />
+<br />
+<div class="bloque_con_fondo">Hola!</div>
+
+<script type="text/javascript" scr="//code.jquery.com/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="/tooltup.min.js"></script>
+<script type="text/javascript">
+var rcrds_h = { 
+pln:function(s,tt,t,f){ 
+$(s).tooltup('<div class="clearfix"><div><h2>'+tt+'</h2></div><br /><div class="size11 color_gray">'+t+'</div><div class="clearfix" style="margin-top: 10px;"><a class="btn_green btn color_white" onclick="rcrds_h.'+f+'();">Siguiente</a><a class="btn_green btn close_tooltup">Cerrar</a></div></div>'); 
+}, 
+run: function(){ this.pln('.bloque_con_fondo', 'Este es un bloque', 'Este bloque tiene 3 hijos, una niña y dos niños, el no publica que es un lucho, se como el bloque.', 'end'); 
+}, 
+end: function(){; $('.bloque_con_fondo').tooltup('<div class="clearfix"><div><h2>Recuerda...</h2></div><br /><div class="size11 color_gray">El bloque no es un luchon.</div><div class="clearfix" style="margin-top: 10px;"><a class="btn_green btn close_tooltup" >Finalizar</a></div></div>'); } }
+$(function () { $('a.run_plugin').click(function(){ rcrds_h.run(); }); });
+</script>
+</body>
+</html>
